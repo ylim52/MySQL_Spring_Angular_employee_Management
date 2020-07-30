@@ -1,0 +1,16 @@
+
+      <h2>House Information</h2>
+      <p><span style="font-weight: bolder">Address: </span> {{ house.address }}</p> 
+      <table id= "EmployeeHouseTable" class="table">
+        <tr>
+          <th > Name </th>
+          <th > Cellphone</th>
+        </tr>
+        <tbody> 
+              <tr class ="table table-hover">
+                  <td> {{ house.employees[0].firstName }}  </td>
+                  <td> {{ house.employees[0].cellPhone }}  </td>
+              </tr>
+        </tbody> 
+      </table>
+      <button class = "btn btn-primary" routerLink= "/user/facility-report" routerLinkActive="active">Go to Facility Report Page</button>

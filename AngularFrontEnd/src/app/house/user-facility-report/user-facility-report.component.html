@@ -1,0 +1,52 @@
+<body>
+    <h1>Facility Report</h1>   
+      <form [formGroup] = "form2">
+        <hr>
+        <mat-form-field>
+          <input matInput placeholder="Title" formControlName="title">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Description" formControlName="description">
+        </mat-form-field>
+        <br>
+        <button mat-button color="primary" (click) = "report()">Report</button>
+      </form>
+    <br>
+  <h2>Reports List</h2>
+      <table id="EmployeeHouseTable" class="table">
+        <tr>
+          <th > Title</th>
+          <th >Description</th>
+          <th >Created By</th>
+          <th >Report Date</th>
+          <th >Status</th>
+           <th> Comments </th>
+        </tr>
+        <tbody>
+              <tr class ="table table-hover" *ngFor = "let facilityReport of house.employees[0].facilityReports">
+                  <td> {{ facilityReport.title }}  </td>
+                  <td> {{ facilityReport.description }} </td>
+                  <td> {{ house.employees[0].firstName }} </td>
+                  <td> {{ facilityReport.reportDate }} </td>
+                  <td> {{ facilityReport.status }} </td>
+                 <td><p class="mat-card-content"><span style="font-weight: bolder">Comments :</span> {{employee.facilityReports[0].facilityReportDetail.comments}}</p></td>
+                 <td> <p class="mat-card-content"><span style="font-weight: bolder">Created By :</span> {{employee.firstName}}</p></td>
+                  <td><p class="mat-card-content"><span style="font-weight: bolder">Created Date :</span> {{employee.facilityReports[0].facilityReportDetail.createdDate}}</p></td>
+                 <button (click)="update()">Edit</button>
+              </tr>
+        </tbody>
+      </table>
+      <form [formGroup]="form1" (ngSubmit)="submit()" [hidden]="updateComments">
+        <hr>
+        <mat-form-field>
+          <input matInput placeholder="Comment" formControlName="comments">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Created Date" formControlName="createdDate">
+        </mat-form-field>
+        <br>
+        <button mat-button color="primary" type="submit">Save</button>
+      </form>
+  </body>

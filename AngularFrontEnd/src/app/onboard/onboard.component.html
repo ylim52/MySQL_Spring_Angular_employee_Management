@@ -1,0 +1,255 @@
+<div class="container border rounded border-dark">
+    <br>
+    <h1>Onboard Application Form</h1>
+        <table class="table">
+            <tbody>
+                <th>
+                    <tr>* is mandatory</tr>
+                </th>
+                <tr>
+                    <th>First Name *</th>
+                    <th><input type="text" [(ngModel)]="employee.firstName">
+                        <br>
+                        <p> {{allComments[0]}} </p>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Middle Name</th>
+                    <th><input type="text" [(ngModel)]="employee.middleName"></th>
+                </tr>
+                <tr>
+                    <th>Last Name *</th>
+                    <th><input type="text" [(ngModel)]="employee.lastName"></th>
+                </tr>
+                <tr>
+                    <td>
+                        <img height= "200px" width="200px" [src]="_d.bypassSecurityTrustUrl(imgsrc)">
+                    </td>
+                    <td>
+                        {{allComments[1]}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Avatar</th>
+                    <th>
+                        <input type="file" (change)="selectAvatar($event)">
+                    </th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>
+                        <button class ="btn btn-info" [disabled]="!selectedAvatar" (click)="submitAvatar()">Upload</button>
+                    </th>
+                </tr>
+                <h1>Address</h1>
+                <tr>
+                    <th>Address 1 *</th>
+                    <th><input type="text" [(ngModel)]="employee.address.addressLine1">
+                    <br>{{allComments[2]}}</th>
+                </tr>
+                <tr>
+                    <th>Address 2</th>
+                    <th><input type="text" [(ngModel)]="employee.address.addressLine2"></th>
+                </tr>
+                <tr>
+                    <th>City *</th>
+                    <th><input type="text" [(ngModel)]="employee.address.city"><br>
+                        {{allComments[3]}}</th>
+                </tr>
+                <tr>
+                    <th>Zipcode *</th>
+                    <th><input type="text" [(ngModel)]="employee.address.zipcode"><br>
+                        {{allComments[4]}}</th>
+                </tr>
+                <tr>
+                    <th>StateName *</th>
+                    <th><input type="text" [(ngModel)]="employee.address.stateName"><br>
+                        {{allComments[5]}}</th>
+                </tr>
+                <tr>
+                    <th>State Abbreviatation *</th>
+                    <th><select [(ngModel)]="employee.address.stateAbbr" id="StateAbbr">
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AZ">AZ</option>
+                        <option value="AR">AR</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DE">DE</option>
+                        <option value="DC">DC</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="IA">IA</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="ME">ME</option>
+                        <option value="MD">MD</option>
+                        <option value="MA">MA</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MS">MS</option>
+                        <option value="MO">MO</option>
+                        <option value="MT">MT</option>
+                        <option value="NE">NE</option>
+                        <option value="NV">NV</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NY">NY</option>
+                        <option value="NC">NC</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WV">WV</option>
+                        <option value="WI">WI</option>
+                        <option value="WY">WY</option>
+                    </select>
+                    </th>
+                </tr>
+                <h1>Personal Information</h1>
+                <tr>
+                    <th>Cell Phone *</th>
+                    <th><input type="text" [(ngModel)]="employee.cellPhone"><br>
+                        {{allComments[6]}}</th>
+                </tr>
+                <tr>
+                    <th>Work Phone</th>
+                    <th><input type="text" [(ngModel)]="employee.altPhone"></th>
+                </tr>
+                <tr>
+                    <th>Car Info</th>
+                    <th><input type="text" [(ngModel)]="employee.car"><br>Pattern: Maker-Model-Color <br> ie:Audi-Q7-Black
+                        <br>{{allComments[7]}}</th>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <th><input type="text" [(ngModel)]="employee.email" readonly>{{allComments[8]}}</th>
+                </tr>
+                <tr>
+                    <th>SSN *</th>
+                    <th><input type="text" [(ngModel)]="employee.ssn">{{allComments[9]}}</th>
+                </tr>
+                <tr>
+                    <th>Date of Birth *</th>
+                    <th><input type="text" [(ngModel)]="employee.dob"><br>ie:1996-03-25
+                    <br>{{allComments[10]}}</th>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <th>
+                        <select [(ngModel)]="employee.gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        <br>{{allComments[11]}}
+                    </th>
+                </tr>
+                <h1>Visa Information</h1>
+                <tr>
+                    <th>Citizens of US *</th>
+                    <th>
+                        <input type="checkbox" [(ngModel)]="isCitizen" (change)='trueCitizen($event)'> &nbsp; Yes <br>
+                        <input type="checkbox" [(ngModel)]="!isCitizen" (change)='falseCitizen($event)'> &nbsp; No
+                    </th>
+                </tr>
+                <tr *ngIf="!isCitizen">
+                    <th>Visa Type *</th>
+                    <th>
+                        <select [(ngModel)]="employee.visaStatus.visaType" id="visaStatus">
+                            <option value="H1-B">H1-B</option>
+                            <option value="L2">L2</option>
+                            <option value="F1">F1</option>
+                            <option value="H4">H4</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <br>{{allComments[12]}}
+                     </th>
+                </tr>
+                <tr *ngIf="!isCitizen">
+                    <th>Start Date</th>
+                    <th><input type="text" [(ngModel)]="employee.startDate"></th>
+                </tr>
+                <tr *ngIf="!isCitizen">
+                    <th>Expiration Date</th>                        <th><input type="text" [(ngModel)]="employee.endDate"></th>
+                </tr>
+                <tr *ngIf="!isCitizen"> 
+                    <th>Upload Work Authorization</th>                        <th>
+                    <input type="file" (change)="selectVisa($event)">
+                </th>
+                </tr>
+                <tr *ngIf="!isCitizen">
+                    <th></th>
+                    <th>
+                        <button class ="btn btn-info" [disabled]="!selectedVisa" (click)="submitVisa()">Upload</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Driver license *</th>
+                    <th>
+                        <input type="checkbox" [(ngModel)]="hasDriverLicence" (change)="trueDriverLicence($event)"> &nbsp; Yes <br>
+                        <input type="checkbox" [(ngModel)]="!hasDriverLicence" (change)='falseDriverLicence($event)'> &nbsp; No
+                        <br>{{allComments[13]}}
+                    </th>
+                </tr>
+                <tr *ngIf="hasDriverLicence">
+                        <th>Licence Number</th>
+                    <th><input type="text" [(ngModel)]="employee.license"></th>
+                </tr>
+                <tr *ngIf="hasDriverLicence">
+                    <th>Licence Number</th>
+                    <th><input type="text" [(ngModel)]="employee.licenseED"></th>
+                </tr>
+                <tr *ngIf="hasDriverLicence">
+                    <th>Upload Driving Licence</th>                        <th>
+                    <input type="file" (change)="selectLicence($event)">
+                </tr>
+                <tr *ngIf="hasDriverLicence">
+                    <th></th>
+                    <th>
+                        <button class ="btn btn-info" [disabled]="!selectedLicence" (click)="submitLicence()">Upload</button>
+                    </th>
+                </tr>
+    
+                <!-- <h1>Reference</h1>
+                <tr>
+                    <th>First Name</th>
+                    <th><input type="text" placeholder="first name"></th>
+                </tr>
+                <tr>
+                    <th>Middle Name</th>
+                    <th><input type="text" placeholder="middle name"></th>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <th><input type="text" placeholder="last name"></th>
+                </tr>
+                <h1>Emergency Contact *</h1>
+                <tr>
+                    <th>Emergency Contact</th>
+                    <th><input type="text" placeholder=""></th>
+                </tr> -->
+            </tbody>
+        </table>
+        <div class="text-center">
+            <button class="btn btn-primary btn-lg" (click)="update()">Submit</button>
+        </div>
+        <br>
+</div>
+
