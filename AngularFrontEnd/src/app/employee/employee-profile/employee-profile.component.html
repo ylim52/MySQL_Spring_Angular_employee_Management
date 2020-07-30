@@ -1,0 +1,25 @@
+<div id="top-div" class="card" *ngIf="employee">
+  <div class="card-body">
+    <h2 class="card-title">Employee Detail</h2>
+    <h4 class="card-subtitle mb-2 text-muted">Employee Information</h4>
+    <p class="card-text"><span style="font-weight: bolder">ID: </span> {{ employee.employeeId }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Name: </span> <span>{{ employee.firstName }} {{ employee.middleName }} {{ employee.lastName }}</span></p>
+    <p class="card-text"><span style="font-weight: bolder">SSN: </span> {{ employee.ssn }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Start Date: </span> {{ employee.startDate }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Visa Status: </span> {{ employee.visaID }}</p>
+  </div>
+</div><br>
+<div id="bot-div" class="card" *ngIf="visa">
+  <div class="card-body">
+    <h2 class="card-title">Visa</h2>
+    <h4 class="card-subtitle mb-2 text-muted">Details</h4>
+    <p class="card-text"><span style="font-weight: bolder">ID: </span> {{ visa.id }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Visa Type: </span> {{ visa.visaType }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Active Status: </span> <span>{{ visa.active }}</span></p>
+    <p class="card-text"><span style="font-weight: bolder">Creating User: </span> {{ visa.createUser }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Modifying User: </span> {{ visa.modificationUser }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Start Date: </span> {{ employee.visaStart }}</p>
+    <p class="card-text"><span style="font-weight: bolder">End Date: </span> {{ employee.visaEnd }}</p>
+  </div>
+</div>
+

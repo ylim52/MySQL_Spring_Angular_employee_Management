@@ -1,0 +1,181 @@
+<div id="name-section" class="container">
+  <div class="mat-card" [hidden]="displayN">
+    <p class="mat-card-title">Name</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">First Name :</span> {{employee.firstName}}</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">Middle Name :</span> {{employee.middleName}}</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">Last Name :</span> {{employee.lastName}}</p>
+    <button mat-button color="primary" (click)="updateName()">Update</button>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submitName()" [hidden]="updateN">
+    <hr>
+    <mat-form-field>
+      <input id="first" matInput placeholder="First Name" formControlName="first" required minlength="3">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Middle Name" formControlName="middle">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Last Name" formControlName="last" required minlength="3">
+    </mat-form-field>
+    <br>
+    <button mat-button color="primary" type="submit">Save</button>
+    <button mat-button color="danger" type="reset" (click)="cancelName()">Cancel</button>
+  </form>
+</div>
+<div id="address-section" class="container">
+  <div class="mat-card" [hidden]="displayA">
+    <p class="mat-card-title">Address</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">Address 1 :</span> {{employee.address.addressLine1}}</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">Address 2 :</span> {{employee.address.addressLine2}}</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">City :</span> {{employee.address.city}}</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">State :</span> {{employee.address.stateName}}</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">Zip Code :</span> {{employee.address.zipcode}}</p>
+    <button mat-button color="primary" (click)="updateAddress()">Update</button>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submitAddress()" [hidden]="updateA">
+    <hr>
+    <mat-form-field>
+      <input matInput placeholder="Address 1" formControlName="address1">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Address 2" formControlName="address2">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="City" formControlName="city">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="State" formControlName="state">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Zip Code" formControlName="zipCode">
+    </mat-form-field>
+    <br>
+    <button mat-button color="primary" type="submit">Save</button>
+    <button mat-button color="danger" type="reset" (click)="cancelAddress()">Cancel</button>
+  </form>
+</div>
+<!--<div id="contact-info-section" class="container">-->
+<!--  <div class="mat-card" [hidden]="displayA">-->
+<!--    <p class="mat-card-title">Contact Info</p>-->
+<!--&lt;!&ndash;    <p class="mat-card-content"><span style="font-weight: bolder">Address :</span> {{employee.p}}</p>&ndash;&gt;-->
+<!--    <p class="mat-card-content"><span style="font-weight: bolder">City :</span> {{employee.middleName}}</p>-->
+<!--    <p class="mat-card-content"><span style="font-weight: bolder">State :</span> {{employee.lastName}}</p>-->
+<!--    <p class="mat-card-content"><span style="font-weight: bolder">Zip Code :</span> {{employee.lastName}}</p>-->
+<!--    <button mat-button color="primary" (click)="updateAddress()">Update</button>-->
+<!--  </div>-->
+<!--  <form [formGroup]="form" (ngSubmit)="submitName()" [hidden]="updateA">-->
+<!--    <hr>-->
+<!--    <mat-form-field>-->
+<!--      <input matInput placeholder="Address" formControlName="address">-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+<!--    <mat-form-field>-->
+<!--      <input matInput placeholder="City" formControlName="city">-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+<!--    <mat-form-field>-->
+<!--      <input matInput placeholder="State" formControlName="state">-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+<!--    <mat-form-field>-->
+<!--      <input matInput placeholder="Zip Code" formControlName="zipCode">-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+<!--    <button mat-button color="primary" type="submit">Save</button>-->
+<!--    <button mat-button color="danger" type="submit" (click)="cancelAddress()">Cancel</button>-->
+<!--  </form>-->
+<!--</div>-->
+<div id="employment-section" class="container">
+  <div class="mat-card" [hidden]="displayE">
+    <p class="mat-card-title">Employment Info</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">Title :</span> {{employee.title}}</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">Manager ID :</span> {{employee.managerId}}</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">Start Date :</span> {{employee.startDate}}</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">End Date :</span> {{employee.endDate}}</p>
+    <button mat-button color="primary" (click)="updateEmployment()">Update</button>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submitEmployment()" [hidden]="updateE">
+    <hr>
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="title" required minlength="3">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Manager ID" formControlName="managerID" required minlength="1">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Start Date" formControlName="startDate" required minlength="5">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="End Date" formControlName="endDate" required minlength="5">
+    </mat-form-field>
+    <br>
+    <button mat-button color="primary" type="submit">Save</button>
+    <button mat-button color="danger" type="reset" (click)="cancelEmployment()">Cancel</button>
+  </form>
+</div>
+<!--<div id="emergency-contact-section" class="container">-->
+<!--  <div class="mat-card" [hidden]="displayA">-->
+<!--    <p class="mat-card-title">Emergency Contact</p>-->
+<!--&lt;!&ndash;    <p class="mat-card-content"><span style="font-weight: bolder">Address :</span> {{employee.p}}</p>&ndash;&gt;-->
+<!--    <p class="mat-card-content"><span style="font-weight: bolder">City :</span> {{employee.middleName}}</p>-->
+<!--    <p class="mat-card-content"><span style="font-weight: bolder">State :</span> {{employee.lastName}}</p>-->
+<!--    <p class="mat-card-content"><span style="font-weight: bolder">Zip Code :</span> {{employee.lastName}}</p>-->
+<!--    <button mat-button color="primary" (click)="updateAddress()">Update</button>-->
+<!--  </div>-->
+<!--  <form [formGroup]="form" (ngSubmit)="submitName()" [hidden]="updateA">-->
+<!--    <hr>-->
+<!--    <mat-form-field>-->
+<!--      <input matInput placeholder="Address" formControlName="address">-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+<!--    <mat-form-field>-->
+<!--      <input matInput placeholder="City" formControlName="city">-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+<!--    <mat-form-field>-->
+<!--      <input matInput placeholder="State" formControlName="state">-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+<!--    <mat-form-field>-->
+<!--      <input matInput placeholder="Zip Code" formControlName="zipCode">-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+<!--    <button mat-button color="primary" type="submit">Save</button>-->
+<!--    <button mat-button color="danger" type="submit" (click)="cancelAddress()">Cancel</button>-->
+<!--  </form>-->
+<!--</div>-->
+<div id="document-section" class="container">
+  <div class="mat-card" [hidden]="displayD">
+    <p class="mat-card-title">Documents</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">Social Security Number :</span> {{employee.ssn}}</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">License :</span> {{employee.license}}</p>
+    <p class="mat-card-content"><span style="font-weight: bolder">License Exp. Date :</span> {{employee.licenseED}}</p>
+    <button mat-button color="primary" (click)="updateDocument()">Update</button>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submitDocument()" [hidden]="updateD">
+    <hr>
+    <mat-form-field>
+      <input matInput placeholder="Social Security Number" formControlName="ssn" required minlength="10">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="License" formControlName="license" required minlength="10">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Expiration" formControlName="exp" required minlength="5">
+    </mat-form-field>
+    <br>
+    <button mat-button color="primary" type="submit">Save</button>
+    <button mat-button color="danger" type="reset" (click)="cancelDocument()">Cancel</button>
+  </form>
+</div>

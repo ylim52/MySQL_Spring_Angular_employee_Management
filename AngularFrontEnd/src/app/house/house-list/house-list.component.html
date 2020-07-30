@@ -1,0 +1,26 @@
+<div>
+    <table id="HouseTable" class="table">
+      <tr>
+        <th >Address</th>
+        <th >Landlord</th>
+        <th >Phone</th>
+        <th >Email</th>
+        <th >Number of Employee in the house</th>
+      </tr>
+      <tbody> 
+        <ng-container *ngFor="let house of getItems()" > 
+            <tr class ="table table-hover" *ngFor = "let employee of house.employees" [routerLink]="['/hr/house/id', house.id]">
+                <td>{{house.address}}</td>
+                <td>{{ employee.firstName }} {{ employee.middleName }} {{ employee.lastName }}</td>
+                <td>{{employee.cellPhone}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{house.occupancy}}</td>  
+            </tr>
+          </ng-container>
+      </tbody> 
+    </table>
+</div>
+<router-outlet></router-outlet>
+
+
+

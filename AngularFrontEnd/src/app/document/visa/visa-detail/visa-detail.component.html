@@ -1,0 +1,30 @@
+<div id="top-div" class="card" *ngIf="visa">
+  <div class="card-body">
+    <h2 class="card-title">Visa</h2>
+    <h4 class="card-subtitle mb-2 text-muted">Details</h4>
+    <p class="card-text"><span style="font-weight: bolder">ID: </span> {{ visa.id }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Visa Type: </span> {{ visa.visaType }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Active Status: </span> <span>{{ visa.active }}</span></p>
+    <p class="card-text"><span style="font-weight: bolder">Creating User: </span> {{ visa.createUser }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Modifying User: </span> {{ visa.modificationUser }}</p>
+  </div>
+</div>
+<br>
+<div class="rounded border container">
+  <ul class="list-group">
+    <li class="list-group-item">Application Number: {{application.id}}</li>
+    <li class="list-group-item">Type: {{application.type}} </li>
+    <li class="list-group-item">Application Status: {{application.status}}  </li>
+    <li class="list-group-item">Created on: {{application.createdDate}} </li>
+    <li class="list-group-item">Last modified on: {{application.modificationDate}}  </li>
+  </ul>
+  <br>
+  <div class="btn-group" [hidden]="pending">
+    <button class="btn btn-primary" (click) = "download()">Download</button>
+    &nbsp;
+    <button class="btn btn-success" (click) = "approve()">Approve</button>
+    &nbsp;
+    <button class="btn btn-danger" (click) = "reject()">Reject</button>
+  </div>
+
+</div>

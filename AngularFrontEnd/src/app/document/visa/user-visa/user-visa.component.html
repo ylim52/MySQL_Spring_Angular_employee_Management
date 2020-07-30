@@ -1,0 +1,94 @@
+<div class="alert alert-warning" role="alert" [hidden]="check">
+  <strong>WARNING</strong> Check your alerts:
+  <button type="button" class="btn btn-link" (click)="checkErrors()" target="_blank">Alerts</button>
+</div>
+
+<div class="alert alert-success" role="alert" [hidden]="updated">
+  <strong>UP TO DATE</strong> Your Application is currently being reviewed.
+</div>
+
+<div class="alert alert-danger" role="alert" [hidden]="optReceipt">
+  <p></p>
+  <strong>ACTION REQUIRED FOR APPLICATION</strong> Upload Corresponding Copy of OPT (STEM) Receipt
+  <button class="btn btn-success float-right" [disabled]="!selectedFiles" (click)="submitOPTReceipt()">
+    Upload
+  </button>
+  <label class="btn btn-default float-right">
+    <input type="file" (change)="selectFile($event)" />
+  </label>
+  <p></p>
+</div>
+
+<div class="alert alert-danger" role="alert" [hidden]="i983">
+  <strong>ACTION REQUIRED FOR APPLICATION</strong> Fill Out
+  <button type="button" class="btn btn-link" (click)="downloadI983()" target="_blank">I-983 Form</button>
+  <button type="button" class="btn btn-link" (click)="downloadI983sample()" target="_blank"> Sample Form</button>
+  <button class="btn btn-success float-right" [disabled]="!selectedFiles" (click)="submitI983()">
+    Upload
+  </button>
+  <label class="btn btn-default float-right">
+    <input type="file" (change)="selectFile($event)" />
+  </label>
+
+</div>
+
+<div class="alert alert-danger" role="alert" [hidden]="i20">
+  <strong>ACTION REQUIRED FOR APPLICATION</strong> Fill Out
+  <button type="button" class="btn btn-link" (click)="downloadI20()" target="_blank">I-20 Form</button>
+  <button class="btn btn-success float-right" [disabled]="!selectedFiles" (click)="submitI20()">
+    Upload
+  </button>
+  <label class="btn btn-default float-right">
+    <input type="file" (change)="selectFile($event)" />
+  </label>
+</div>
+
+<div class="alert alert-danger" role="alert" [hidden]="optEAD">
+  <p></p>
+  <input hidden type="file" #uploader>
+  <strong>ACTION REQUIRED FOR APPLICATION</strong> Upload OPT EAD
+  <button class="btn btn-success float-right" [disabled]="!selectedFiles" (click)="submitOPTead()">
+    Upload
+  </button>
+  <label class="btn btn-default float-right">
+    <input type="file" (change)="selectFile($event)" />
+  </label>
+  <p></p>
+</div>
+
+<div id="bot-div" class="card" *ngIf="visa">
+  <div class="card-body">
+    <h2 class="card-title">Visa</h2>
+    <h4 class="card-subtitle mb-2 text-muted">Details</h4>
+    <p class="card-text"><span style="font-weight: bolder">ID: </span> {{ visa.id }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Visa Type: </span> {{ visa.visaType }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Active Status: </span> <span>{{ visa.active }}</span></p>
+    <p class="card-text"><span style="font-weight: bolder">Creating User: </span> {{ visa.createUser }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Modifying User: </span> {{ visa.modificationUser }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Start Date: </span> {{ employee.visaStart }}</p>
+    <p class="card-text"><span style="font-weight: bolder">End Date: </span> {{ employee.visaEnd }}</p>
+  </div>
+</div>
+<div id="top-div" class="card" *ngIf="application">
+  <div class="card-body">
+    <h2 class="card-title">Current Application Step</h2>
+    <h4 class="card-subtitle mb-2 text-muted">Employee Information</h4>
+    <p class="card-text"><span style="font-weight: bolder">Application ID: </span> {{ application.id }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Type: </span> <span>{{ application.type }} </span></p>
+    <p class="card-text"><span style="font-weight: bolder">Status: </span> {{ application.status }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Created On: </span> {{ application.createdDate }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Modified On: </span> {{ application.modificationDate }}</p>
+  </div>
+</div>
+<div id="mid-div" class="card" *ngFor="let doc of personalDocuments">
+  <div class="card-body">
+    <h2 class="card-title">
+      <button type="button" class="btn btn-link" (click)="downloadUser(doc.path)" target="_blank">{{doc.title}}</button>
+    </h2>
+    <h4 class="card-subtitle mb-2 text-muted">Information</h4>
+    <p class="card-text"><span style="font-weight: bolder">ID: </span> {{ doc.id }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Comment: </span> {{ doc.comment }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Created By: </span> {{ doc.createdBy }}</p>
+    <p class="card-text"><span style="font-weight: bolder">Created On: </span> {{ doc.createdDate }}</p>
+  </div>
+</div>

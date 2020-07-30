@@ -1,0 +1,36 @@
+.valid {
+    color: green
+}
+
+.invalid{
+    color: red
+}
+
+#StatusTrackTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #StatusTrackTable td, #StatusTrackTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  #StatusTrackTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #StatusTrackTable tr:hover {background-color: #ddd;}
+  
+  #StatusTrackTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color:#333;
+    color: white;
+  }
+ .btn-primary{
+      background-color: #333;
+      border: none;
+      margin: 4px 2px;
+  }

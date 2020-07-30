@@ -1,0 +1,31 @@
+<nav class="navbar navbar-light bg-dark">
+  <form class="form-inline" style="margin-left:10%">
+    <input class="form-control mr-sm-2" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="ID"/>
+  </form>
+</nav>
+<div class="row" >
+  <div  class="col-xs-12 col-sm-4" style="margin-left:10%">
+    <table id="emp-table" class="table">
+      <tr>
+        <th (click)="sort('id')">ID</th>
+        <th (click)="sort('visaType')">Visa Type</th>
+        <th (click)="sort('active')">Active Status</th>
+        <th (click)="sort('modificationUser')">User Modified</th>
+        <th (click)="sort('createUser')">User Created</th>
+      </tr>
+      <tbody>
+      <tr class="table table-hover" *ngFor="let visa of visaList | filter : 'id' : searchText;" [routerLink]="['/hr/visa/id', visa.id]" >
+        <td>{{visa.id}}</td>
+        <td>{{visa.visaType}}</td>
+        <td>{{visa.active}}</td>
+        <td>{{visa.modificationUser}}</td>
+        <td>{{visa.createUser}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-xs-12 col-sm-4" style="margin-left: 10%">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container rounded border border-dark">
+    <br>
+    <div class="text-center">
+        <h1>Onboard Application Details</h1>
+    </div>
+    <div *ngFor="let application of applications; let i = index;">
+        <app-subdetail *ngIf="application.status==='Pending'"
+            [application]='application'
+            [index]='i+1'
+            [employee]='employees[application.id-1]'>
+        </app-subdetail>
+    </div>
+
+</div>

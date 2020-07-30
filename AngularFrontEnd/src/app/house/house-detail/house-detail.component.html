@@ -1,0 +1,85 @@
+<div *ngIf = "house">
+  <div *ngFor = "let employee of house.employees">
+    <h2>House Information</h2>
+    <p><span style="font-weight: bolder">Address: </span> {{ house.address }}</p>
+    <p><span style="font-weight: bolder">Landlord: </span> <span>{{ employee.firstName }} {{ employee.middleName }} {{ employee.lastName }}</span></p>
+    <p><span style="font-weight: bolder">Phone: </span> {{ employee.cellPhone }}</p>
+    <p><span style="font-weight: bolder">Number of Person: </span> {{ house.occupancy }}</p>
+
+    <h2>Employee Information</h2>
+    <table id="FacilityTable" class="table">
+      <tr>
+        <th >Name</th>
+        <th >Phone</th>
+        <th >Email</th>
+        <th >Car</th>
+      </tr>
+      <tbody>
+            <tr class ="table table-hover" [routerLink]="['/hr/employee/id', employee.id]">
+                <td>{{ employee.firstName }}</td>
+                <td>{{ employee.cellPhone }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.car }}<td>
+            </tr>
+      </tbody>
+    </table>
+
+    <h2>Facility Information</h2>
+    <table id="FacilityTable" class="table">
+      <tr>
+        <th ># of Beds</th>
+        <th ># of Mattress</th>
+        <th ># of Tables</th>
+        <th ># of Chairs</th>
+      </tr>
+      <tbody>
+            <tr class ="table table-hover">
+                <td>{{ house.facilities[0].quantity }}</td>
+                <td>{{ house.facilities[1].quantity }}</td>
+                <td>{{ house.facilities[2].quantity }}</td>
+                <td>{{ house.facilities[3].quantity }}<td>
+            </tr>
+      </tbody>
+    </table>
+</div>
+<table id="ReportTable" class="table">
+  <tr>
+    <th>Title</th>
+    <th>Report Date</th>
+    <th>Status</th>
+    <th>Comments List<span class = "tab"></span></th>
+  </tr>
+
+  <tbody>
+        <tr class ="table table-hover" *ngFor = "let facilityReport of employee.facilityReports">
+            <td>{{ facilityReport.title  }}</td>
+            <td>{{ facilityReport.reportDate  }}</td>
+            <td>{{ facilityReport.status }}</td>
+            <table class="table">
+              <th>Comment</th>
+              <th>Created By</th>
+              <th>Created Date</th>
+              <tr [hidden] = "displayComments"> 
+                <td>{{ facilityReport.facilityReportDetail.comments }} </td>
+                <td>{{ employee.firstName}}</td>
+                <td>{{ facilityReport.facilityReportDetail.createdDate }}</td>
+                <button (click)="update()">Update</button>
+              </tr>
+          </table>
+        </tr>
+  </tbody>
+</table>
+  <form [formGroup]="form" (ngSubmit)="submit()" [hidden]="updateComments">
+    <hr>
+    <mat-form-field>
+      <input matInput placeholder="Comments" formControlName="comments">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Created Date" formControlName="createdDate">
+    </mat-form-field>
+    <br>
+    <button mat-button color="primary" type="submit">Save</button>
+    <button mat-button color="danger" type="reset" (click)="cancel()">Cancel</button>
+  </form>
+</div>

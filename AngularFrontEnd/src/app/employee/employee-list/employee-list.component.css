@@ -1,0 +1,10 @@
+tr td{
+  white-space: nowrap;
+}
+
+#emp-table{
+  border-color: #333333;
+  border-style: solid;
+  margin-top:5%;
+}
+ 

@@ -1,0 +1,27 @@
+<div>
+  <table id="StatusTrackTable" class="table">
+    <tr>
+      <th >Name</th>
+      <th >Work Authorization</th>
+      <th >Expiration Date</th>
+      <th >Date Left</th>
+      <th >Actions</th>
+    </tr>
+    <tbody>
+      <tr class="table table-hover" *ngFor="let employee of getItems()">
+        <td><a routerLink = "/hr/visa">{{employee.firstName}} {{employee.middleName}} {{employee.lastName}} </a></td>
+        <td>{{employee.visaStatus.visaType}}</td>
+        <td>{{employee.visaEnd}}</td>
+        <td>{{getDayLeft(employee.visaEnd)}}</td>     
+        <a href="mailto:{{employee.email}}" class="btn btn-primary">Send Notification</a>
+        <button class="btn btn-primary">I-983</button>
+        <input 
+        hidden 
+        type="file" 
+        #uploader
+        (change)="uploadFile($event)"/>
+        <button class="btn btn-primary" (click) = "uploader.click()">Upload</button>       
+      </tr>
+    </tbody>
+  </table>
+</div>

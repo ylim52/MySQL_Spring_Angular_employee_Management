@@ -1,0 +1,41 @@
+<div class="container rounded border border-dark">
+    <div class="container">
+        <form (ngSubmit) = "generateToken()" #tokenForm="ngForm">
+            <br>
+            <label for="email">Enter employee email to generate token: </label>
+            <div class="input-group-prepend">
+                <button [disabled]="!email" class="btn btn-primary" type="submit">Generate</button>
+                <input type="text" class="form-control" placeholder="Enter Email"
+                    [(ngModel)]="email" id="email" name="email" required #name="ngModel">
+            </div>
+        </form>
+        <br>
+        <button class="btn btn-success" (click) = "display()">Details</button>
+    </div>
+    <div class="container">
+        <span *ngIf="showDetail">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID:</th>
+                        <th>Token</th>
+                        <th>Email</th>
+                        <th>Valid Duration</th>
+                        <th>Created By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let token of tokens">
+                        <td>{{token.id}}</td>
+                        <td>{{token.token}}</td>
+                        <td>{{token.email}}</td>
+                        <td>{{token.validDuration}}</td>
+                        <td>{{token.createdBy}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </span>
+    </div>
+    <br>
+</div>
+

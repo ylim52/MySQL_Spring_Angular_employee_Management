@@ -1,0 +1,35 @@
+<nav class="navbar navbar-light bg-dark">
+  <form class="form-inline" style="margin-left:10%">
+    <input class="form-control mr-sm-2" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search By Name or ID"/>
+  </form>
+</nav>
+<div class="row" >
+  <div  class="col-xs-12 col-sm-4" style="margin-left:10%">
+    <table id="emp-table" class="table">
+      <tr>
+        <th (click)="sort('id')">ID</th>
+        <th (click)="sort('firstName')">First Name</th>
+        <th (click)="sort('middleName')">Middle Name</th>
+        <th (click)="sort('lastName')">Last Name</th>
+        <th (click)="sort('ssn')">SSN</th>
+        <th (click)="sort('startingDate')">Starting Date</th>
+        <th (click)="sort('visaStatus')">Visa Status</th>
+      </tr>
+      <tbody>
+        <tr class="table table-hover" *ngFor="let employee of employeeList | filter : 'id' : searchText;" [routerLink]="['/hr/employee/id', employee.id]" >
+          <td>{{employee.id}}</td>
+          <td>{{employee.firstName}}</td>
+          <td>{{employee.middleName}}</td>
+          <td>{{employee.lastName}}</td>
+          <td>{{employee.ssn}}</td>
+          <td>{{employee.startDate}}</td>
+          <td>{{employee.visaID}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+
+  <div class="col-xs-12 col-sm-4" style="margin-left: 10%">
+    <router-outlet></router-outlet>
+  </div>
+</div>
